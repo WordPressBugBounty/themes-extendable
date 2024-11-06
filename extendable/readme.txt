@@ -3,7 +3,7 @@ Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.3
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.0.13
+Stable tag: 2.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.0.14 - 2024-11-07 =
+- New: Added style compatibility for The Events Calendar plugin.
+- Change: Wrapped the Navigation Block in a Group block to align the WooCommerce icon in a header.
+- Updated: Updated the theme screenshot.
 
 = 2.0.13 - 2024-09-12 =
 -  Add: scroll margin for sticky header page content
