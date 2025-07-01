@@ -156,35 +156,53 @@ add_action( 'init', 'extendable_register_pattern_categories', 9 );
 
 
 /**
- * Enqueue dynamic CSS for primary-foreground duotone filter.
- *
- * Ensure default logo works well on light and dark backgrounds
- *
- * @since Extendable 2.0.11
- *
- * @return void
+ * Add primary-foreground duotone to extendify demo Site Logo block.
+ * 
+ * @param array $parsed_block Parsed block data.
+ * @return array Filtered block data.
  */
-function extendable_enqueue_dynamic_duotone_css() {
-    $theme_json      = WP_Theme_JSON_Resolver::get_merged_data();
-    $duotone_presets = $theme_json->get_settings()['color']['duotone']['theme'] ?? [];
+function extendable_add_duotone_to_extendify_demo_site_logo( array $parsed_block ) : array {
 
-    $preset_index = array_search( 'primary-foreground', array_column( $duotone_presets, 'slug' ) );
-    $primary_color   = '#000000';
-    $foreground_color = '#ffffff';
-    if ( false !== $preset_index ) {
-        $primary_color   = $duotone_presets[ $preset_index ]['colors'][0];
-        $foreground_color = $duotone_presets[ $preset_index ]['colors'][1];
-    }
-    list( $r, $g, $b ) = array_map( fn( $c ) => hexdec( $c ) / 255, sscanf( $primary_color, "#%02x%02x%02x" ) );
-    $css = "
-        .wp-block-site-logo img[src*='extendify-demo-'],
-		.wp-block-site-logo img[src*='ext-custom-logo-'] {
-            filter: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"solid-color\"><feColorMatrix color-interpolation-filters=\"sRGB\" type=\"matrix\" values=\"0 0 0 0 {$r} 0 0 0 0 {$g} 0 0 0 0 {$b} 0 0 0 1 0\"/></filter></svg>#solid-color') !important;
-        }
-    ";
-    wp_add_inline_style( 'wp-block-library', $css );
+	if ( 'core/site-logo' !== $parsed_block['blockName'] ) {
+		return $parsed_block;
+	}
+
+	$logo_url = $parsed_block['attrs']['url'] ?? '';
+
+	if ( '' === $logo_url ) {
+		$logo_id  = (int) get_theme_mod( 'custom_logo' );
+		$logo_url = $logo_id ? wp_get_attachment_url( $logo_id ) : '';
+	}
+
+	if ( '' === $logo_url ) {
+		return $parsed_block;
+	}
+
+	$logo_file        = wp_basename( $logo_url );
+	$allowed_prefixes = array( 'extendify-demo-', 'ext-custom-logo-' );
+
+	$matches = false;
+	foreach ( $allowed_prefixes as $prefix ) {
+		if ( function_exists( 'str_starts_with' ) ) {
+			$matches = str_starts_with( $logo_file, $prefix );
+		} else {
+			$matches = 0 === strpos( $logo_file, $prefix );
+		}
+		if ( $matches ) {
+			break;
+		}
+	}
+
+	if ( ! $matches ) {
+		return $parsed_block;
+	}
+
+	$parsed_block['attrs']['style']['color']['duotone'] =
+		'var:preset|duotone|primary-foreground';
+
+	return $parsed_block;
 }
-add_action( 'wp_enqueue_scripts', 'extendable_enqueue_dynamic_duotone_css' );
+add_filter( 'render_block_data', 'extendable_add_duotone_to_extendify_demo_site_logo', 10 );
 
 /**
  * Exclude WooCommerce Templates from the Block Editor When WooCommerce Is Inactive
@@ -205,3 +223,60 @@ add_action( 'wp_enqueue_scripts', 'extendable_enqueue_dynamic_duotone_css' );
 	return $templates;
 }
 add_filter( 'get_block_templates', 'extendable_exclude_wc_block_templates', 10, 2 );
+
+/**
+ * Navigation customizations
+ *
+ * @package Extendable
+ * @since Extendable 2.0.23
+ */
+if ( ! function_exists( 'extendable_enqueue_navigation_customizations' ) ) :
+	/**
+	 * Enqueue the JS that fetches logo & site title to customize the mobile navigation.
+	 *
+	 */
+	function extendable_enqueue_navigation_customizations() {
+
+		$logo_id   = get_theme_mod( 'custom_logo' );
+    	$logo_url  = $logo_id ? wp_get_attachment_image_url( $logo_id, 'full' ) : '';
+    	$site_title = get_bloginfo( 'name' );
+
+		wp_enqueue_script(
+			'extendable-navigation_customizations',
+			get_template_directory_uri() . '/assets/js/navigation-customization.js',
+			array(),   // no dependencies; add 'wp-interactivity' if you switch back to that version
+			null,
+			true        // load in footer
+		);
+
+		wp_localize_script( 'extendable-navigation_customizations', 'ExtendableNavData', 
+			array(
+        		'logoUrl'   => $logo_url,
+        		'siteTitle' => $site_title,
+    		) 
+		);
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'extendable_enqueue_navigation_customizations' );
+
+/**
+ * Force the block editor to use page-with-title
+ * as the default template for new Pages.
+ *
+ * @since Extendable 2.0.24
+ * @return void
+ */
+add_action( 'enqueue_block_editor_assets', function () {
+    $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+    if ( $screen && $screen->is_block_editor() && 'page' === $screen->post_type ) {
+        wp_enqueue_script(
+            'extendable-default-page-template',
+            get_template_directory_uri() . '/assets/js/default-page-template.js',
+            array( 'wp-data', 'wp-editor' ),
+            EXTENDABLE_THEME_VERSION,
+            true
+        );
+    }
+} );
+
