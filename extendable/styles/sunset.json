@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"title": "Sunset",
+	"slug": "sunset",
 	"version": 3,
 	"settings": {
 		"color": {
@@ -44,7 +45,7 @@
 				{ "slug": "tertiary", "color": "#191A1A", "name": "Tertiary" },
 				{
 					"slug": "foreground-alt",
-					"color": "#191A1A",
+					"color": "#F4E0D9",
 					"name": "Foreground Alt"
 				}
 			]

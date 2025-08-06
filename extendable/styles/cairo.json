@@ -2,6 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
 	"title": "Cairo",
+	"slug": "cairo",
 	"settings": {
 		"color": {
 			"duotone": [
@@ -61,6 +62,11 @@
 					"slug": "tertiary",
 					"color": "#4F4557",
 					"name": "Tertiary"
+				},
+				{
+					"slug": "foreground-alt",
+					"color": "#ffffff",
+					"name": "Foreground Alt"
 				}
 			]
 		}
@@ -144,6 +150,9 @@
 					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
 				}
 			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
 		}
 	}
 }
