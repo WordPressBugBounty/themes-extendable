@@ -236,39 +236,39 @@
 			"defaultSpacingSizes": false,
 			"spacingSizes": [
 				{
-					"size": "1rem",
 					"slug": "20",
-					"name": "0.9"
+					"name": "X-Small",
+					"size": "1rem"
 				},
 				{
-					"size": "min(2rem, 5vw)",
 					"slug": "30",
-					"name": "1"
+					"name": "Small",
+					"size": "clamp(1.5rem, 6vw, 2rem)"
 				},
 				{
-					"size": "min(3rem, 6vw)",
 					"slug": "40",
-					"name": "2"
+					"name": "Medium",
+					"size": "clamp(2rem, 8vw, 3rem)"
 				},
 				{
-					"size": "min(4rem, 7vw)",
 					"slug": "50",
-					"name": "3"
+					"name": "Large",
+					"size": "clamp(2.5rem, 8vw, 4rem)"
 				},
 				{
-					"size": "min(6rem, 8vw)",
+					"slug": "55",
+					"name": "X-Large",
+					"size": "clamp(3rem, 12vw, 5rem)"
+				},
+				{
 					"slug": "60",
-					"name": "4"
+					"name": "XX-Large",
+					"size": "clamp(3.5rem, 10vw, 6rem)"
 				},
 				{
-					"size": "min(7rem, 10vw)",
 					"slug": "70",
-					"name": "5"
-				},
-				{
-					"size": "min(8rem, 12vw)",
-					"slug": "80",
-					"name": "6"
+					"name": "Huge",
+					"size": "clamp(4rem, 15vw, 7rem)"
 				}
 			],
 			"units": ["%", "px", "em", "rem", "vh", "vw"]
@@ -756,6 +756,20 @@
 			],
 			"writingMode": true
 		},
+		"shadow": {
+			"presets": [
+				{
+					"name": "Brutalism",
+					"slug": "brutalism",
+					"shadow": "6px 6px 0 var(--wp--preset--color--foreground)"
+				},
+				{
+					"name": "Brutalism Small",
+					"slug": "brutalism-small",
+					"shadow": "4px 4px 0 var(--wp--preset--color--foreground)"
+				}
+			]
+		},
 		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
@@ -1065,7 +1079,7 @@
 			"fontWeight": "400",
 			"lineHeight": "var(--wp--custom--typography--line-height--normal)"
 		},
-		"css": ".wp-block-heading { overflow-wrap: break-word; hyphens: auto; text-wrap: balance; } .wp-block-heading:lang(zh), .wp-block-heading:lang(ja), .wp-block-heading:lang(ko), .wp-block-heading:lang(th), .wp-block-heading:lang(lo), .wp-block-heading:lang(my), .wp-block-heading:lang(km), .wp-block-heading:lang(ar), .wp-block-heading:lang(ur) { word-break: keep-all; hyphens: manual; }"
+		"css": ".wp-block-heading { overflow-wrap: break-word; hyphens: auto; text-wrap: balance; } .wp-block-heading:lang(ko), .wp-block-heading:lang(th), .wp-block-heading:lang(lo), .wp-block-heading:lang(my), .wp-block-heading:lang(km), .wp-block-heading:lang(ar), .wp-block-heading:lang(ur) { word-break: keep-all; hyphens: manual; }"
 	},
 	"templateParts": [
 		{

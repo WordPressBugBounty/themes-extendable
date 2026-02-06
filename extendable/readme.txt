@@ -3,7 +3,7 @@ Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.29
+Stable tag: 2.0.33
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.0.33 - 2026-02-04 =
+- Change: Remove `word-break: keep-all` rule for `ja` and `zh` languages
+
+= 2.0.31 - 2025-12-09 =
+- Add: Block style variations
+- Add: New spacing unit and spacing label tweaks
+- Change: Update Woo templates
+
+= 2.0.30 - 2025-10-09 =
+- Add: Body font to all typography presets
+- Change: Make WPForms inherit theme styles only when base style is selected
 
 = 2.0.29 - 2025-09-09 =
 - Fix: WPForms compatibility with updated CSS variable system to properly inherit theme styling
@@ -202,7 +214,7 @@ Extendable is a distinct, dynamic block theme designed as a canvas for your next
 
 == Copyright ==
 
-Extendable WordPress Theme, 2021-2022 Extendify Inc.
+Extendable WordPress Theme, 2021-2025 Extendify Inc.
 Extendable is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
