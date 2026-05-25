@@ -1,9 +1,9 @@
 === Extendable ===
 Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.6
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.1.5 - 2026-05-25 =
+- Added: Four new headers
+- Fixed: Font typo
+- Fixed: Custom mobile navigation styles
 
 = 2.1.4 - 2026-04-09 =
 - Added: Header with Center Nav and Phone 
