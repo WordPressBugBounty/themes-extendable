@@ -3,7 +3,7 @@ Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.1.7 - 2026-06-15 =
+- Fixed: Single product template block validation error
+- Fixed: Glass header dropdown menu being clipped
+- Fixed: Contrast on the glass dark style variation
+- Fixed: Animation performance by batching reads/writes to avoid layout thrash
 
 = 2.1.6 - 2026-05-27 =
 - Fixed: no-title-sticky-header template conflict with Overlay headers
