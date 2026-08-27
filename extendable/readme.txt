@@ -3,7 +3,7 @@ Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.8
+Stable tag: 2.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.1.9 - 2026-08-27 =
+- Added: Four color palettes with matching style variations — Heath, Signal, Marzipan and Butterscotch
+- Changed: Every color palette now sets its own card tints and the text color that reads on them, instead of deriving both from the page background
+- Fixed: Cards on the dark palettes — Brisbane, Cairo, Coral, Gdansk, Gold, Lime, Limepop, Onyx, Piraeus, Royal and Sunset — showed near-white text on a light card, leaving it unreadable
+- Fixed: With the zoom animation on, the whole page stayed shrunk after it finished, instead of returning to full size
+- Fixed: Header logos in the Atlas Beacon, Catalina Skyline and Cedar Peak headers were pinned to a fixed width, which squashed tall or square logos
 
 = 2.1.8 - 2026-08-12 =
 - Added: Design-token layer in theme.json — background tint ladder, text and icon roles — the stable names vibes and color palettes target now that they are served as data
