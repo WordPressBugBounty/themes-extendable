@@ -3,7 +3,7 @@ Contributors: extendify, richtabor, colorful-tones
 Requires at least: 6.6
 Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Extendable is a distinct, dynamic block theme designed as a canvas for your next online venture. Sporting multiple style variations, Extendable is the most expressive block theme yet. Go fresh, bold, bohemian or minimal — with a single click.
 
 == Changelog ==
+
+= 2.2.2 - 2026-11-24 =
+- Fixed: With animations on, shop products stayed blank after moving to another page of results, and so did posts in a blog list set to change pages without reloading; anything that never gets its animation now shows after 3 seconds
+- Fixed: On dark palettes, hovering a closed section in Masteriyo's course content list hid its title, and the Courses page title could run under the view switch between phone and desktop widths
+- Fixed: With Masteriyo active, every page without course content wrote a notice to the debug log
 
 = 2.2.1 - 2026-11-19 =
 - Added: Masteriyo course pages follow the site's design — its colours, fonts and spacing — and any colour the site owner picked in Masteriyo still wins
